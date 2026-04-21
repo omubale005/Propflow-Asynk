@@ -74,14 +74,14 @@ export function SettingsPage() {
   };
 
   return (
-    <motion.div variants={containerVariants} initial="hidden" animate="visible" className="space-y-6 max-w-5xl">
+    <motion.div variants={containerVariants} initial="hidden" animate="visible" className="space-y-6 max-w-6xl mx-auto">
       <SavedToast show={saved} />
 
-      <Tabs defaultValue="company" orientation="vertical" className="flex gap-6">
-        {/* Side nav */}
-        <motion.div variants={itemVariants} className="w-56 flex-shrink-0">
-          <Card className="p-2">
-            <nav className="space-y-1">
+      <Tabs defaultValue="company" orientation="vertical" className="flex flex-col md:flex-row gap-8 items-start w-full">
+        {/* Secondary Sidebar */}
+        <motion.div variants={itemVariants} className="w-full md:w-64 flex-shrink-0 md:sticky md:top-24">
+          <Card className="p-3 shadow-none border-gray-200">
+            <TabsList className="flex flex-col space-y-1.5 h-auto bg-transparent p-0 w-full">
               {[
                 { value: 'company', label: 'Company', icon: Building2 },
                 { value: 'profile', label: 'My Profile', icon: User },
@@ -94,50 +94,54 @@ export function SettingsPage() {
                 <TabsTrigger
                   key={item.value}
                   value={item.value}
-                  className="w-full justify-start gap-2.5 px-3 py-2.5 text-sm data-[state=active]:bg-[#0082f3]/10 data-[state=active]:text-[#0082f3] rounded-xl"
+                  className={cn(
+                    "w-full justify-start gap-3 px-4 py-3 text-sm font-medium rounded-xl border-none shadow-none focus-visible:ring-0 transition-all",
+                    "data-[state=active]:bg-[#0082f3] data-[state=active]:text-white",
+                    "data-[state=inactive]:hover:bg-gray-100 data-[state=inactive]:text-gray-600"
+                  )}
                 >
                   <item.icon className="w-4 h-4" />
                   {item.label}
                 </TabsTrigger>
               ))}
-            </nav>
+            </TabsList>
           </Card>
         </motion.div>
 
-        {/* Content */}
-        <div className="flex-1 min-w-0">
+        {/* Content Area */}
+        <div className="flex-1 min-w-0 pb-12">
           {/* Company Info */}
-          <TabsContent value="company" className="mt-0 space-y-4">
+          <TabsContent value="company" className="mt-0 space-y-4 focus-visible:outline-none focus-visible:ring-0">
             <CompanySettings onSave={showSaved} />
           </TabsContent>
 
           {/* Profile */}
-          <TabsContent value="profile" className="mt-0 space-y-4">
+          <TabsContent value="profile" className="mt-0 space-y-4 focus-visible:outline-none focus-visible:ring-0">
             <ProfileSettings onSave={showSaved} />
           </TabsContent>
 
           {/* Notifications */}
-          <TabsContent value="notifications" className="mt-0 space-y-4">
+          <TabsContent value="notifications" className="mt-0 space-y-4 focus-visible:outline-none focus-visible:ring-0">
             <NotificationSettings onSave={showSaved} />
           </TabsContent>
 
           {/* Security */}
-          <TabsContent value="security" className="mt-0 space-y-4">
+          <TabsContent value="security" className="mt-0 space-y-4 focus-visible:outline-none focus-visible:ring-0">
             <SecuritySettings onSave={showSaved} />
           </TabsContent>
 
           {/* Roles */}
-          <TabsContent value="roles" className="mt-0 space-y-4">
+          <TabsContent value="roles" className="mt-0 space-y-4 focus-visible:outline-none focus-visible:ring-0">
             <RolesSettings />
           </TabsContent>
 
           {/* Appearance */}
-          <TabsContent value="appearance" className="mt-0 space-y-4">
+          <TabsContent value="appearance" className="mt-0 space-y-4 focus-visible:outline-none focus-visible:ring-0">
             <AppearanceSettings onSave={showSaved} />
           </TabsContent>
 
           {/* Data */}
-          <TabsContent value="data" className="mt-0 space-y-4">
+          <TabsContent value="data" className="mt-0 space-y-4 focus-visible:outline-none focus-visible:ring-0">
             <DataSettings />
           </TabsContent>
         </div>
