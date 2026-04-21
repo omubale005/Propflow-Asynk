@@ -6,14 +6,11 @@ import { Header } from '@/components/layout/Header';
 import { Dashboard } from '@/components/dashboard/Dashboard';
 import { LeadManagement } from '@/components/leads/LeadManagement';
 import { ProjectManagement } from '@/components/projects/ProjectManagement';
-import { InventoryManagement } from '@/components/inventory/InventoryManagement';
 import { SiteVisitManagement } from '@/components/site-visits/SiteVisitManagement';
 import { BookingManagement } from '@/components/bookings/BookingManagement';
 import { CommissionTracking } from '@/components/commissions/CommissionTracking';
 import { TeamManagement } from '@/components/team/TeamManagement';
-import { DocumentManagement } from '@/components/documents/DocumentManagement';
 import { PaymentTracking } from '@/components/payments/PaymentTracking';
-import { CommunicationHub } from '@/components/communications/CommunicationHub';
 import { ReportsDashboard } from '@/components/reports/ReportsDashboard';
 import { FollowUpManagement } from '@/components/followups/FollowUpManagement';
 import { SettingsPage } from '@/components/settings/SettingsPage';
@@ -139,16 +136,7 @@ function AppRoutes() {
                           </RequireRole>
                         }
                       />
-                      <Route
-                        path="/inventory"
-                        element={
-                          <RequireRole path="/inventory">
-                            <PageWrapper title="Inventory Management">
-                              <InventoryManagement />
-                            </PageWrapper>
-                          </RequireRole>
-                        }
-                      />
+
                       <Route
                         path="/site-visits"
                         element={
@@ -189,16 +177,7 @@ function AppRoutes() {
                           </RequireRole>
                         }
                       />
-                      <Route
-                        path="/documents"
-                        element={
-                          <RequireRole path="/documents">
-                            <PageWrapper title="Document Management">
-                              <DocumentManagement />
-                            </PageWrapper>
-                          </RequireRole>
-                        }
-                      />
+
                       <Route
                         path="/payments"
                         element={
@@ -209,16 +188,7 @@ function AppRoutes() {
                           </RequireRole>
                         }
                       />
-                      <Route
-                        path="/communications"
-                        element={
-                          <RequireRole path="/communications">
-                            <PageWrapper title="Communication Hub">
-                              <CommunicationHub />
-                            </PageWrapper>
-                          </RequireRole>
-                        }
-                      />
+
                       <Route
                         path="/reports"
                         element={
