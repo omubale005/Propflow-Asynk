@@ -7,10 +7,7 @@ import { Dashboard } from '@/components/dashboard/Dashboard';
 import { LeadManagement } from '@/components/leads/LeadManagement';
 import { ProjectManagement } from '@/components/projects/ProjectManagement';
 import { SiteVisitManagement } from '@/components/site-visits/SiteVisitManagement';
-import { BookingManagement } from '@/components/bookings/BookingManagement';
-import { CommissionTracking } from '@/components/commissions/CommissionTracking';
 import { TeamManagement } from '@/components/team/TeamManagement';
-import { PaymentTracking } from '@/components/payments/PaymentTracking';
 import { ReportsDashboard } from '@/components/reports/ReportsDashboard';
 import { FollowUpManagement } from '@/components/followups/FollowUpManagement';
 import { SettingsPage } from '@/components/settings/SettingsPage';
@@ -148,42 +145,11 @@ function AppRoutes() {
                         }
                       />
                       <Route
-                        path="/bookings"
-                        element={
-                          <RequireRole path="/bookings">
-                            <PageWrapper title="Booking & Closure Tracking">
-                              <BookingManagement />
-                            </PageWrapper>
-                          </RequireRole>
-                        }
-                      />
-                      <Route
-                        path="/commissions"
-                        element={
-                          <RequireRole path="/commissions">
-                            <PageWrapper title="Commission Tracking">
-                              <CommissionTracking />
-                            </PageWrapper>
-                          </RequireRole>
-                        }
-                      />
-                      <Route
                         path="/team"
                         element={
                           <RequireRole path="/team">
                             <PageWrapper title="Team Management">
                               <TeamManagement />
-                            </PageWrapper>
-                          </RequireRole>
-                        }
-                      />
-
-                      <Route
-                        path="/payments"
-                        element={
-                          <RequireRole path="/payments">
-                            <PageWrapper title="Payment Tracking">
-                              <PaymentTracking />
                             </PageWrapper>
                           </RequireRole>
                         }
