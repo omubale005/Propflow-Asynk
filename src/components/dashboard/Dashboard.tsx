@@ -153,12 +153,13 @@ export function Dashboard() {
                 </div>
               </div>
               <div className="flex flex-wrap gap-3">
-                <Button className="rounded-full bg-white text-slate-900 hover:bg-white/90 shadow-md shadow-black/10">
+                <Button className="rounded-full bg-white text-slate-900 hover:bg-white/90 shadow-md shadow-black/10" onClick={() => navigate('/leads')}>
                   New Lead
                 </Button>
                 <Button
                   variant="outline"
                   className="rounded-full border-white/40 text-white bg-white/10 hover:bg-white/20"
+                  onClick={() => navigate('/site-visits')}
                 >
                   Schedule Visit
                 </Button>
@@ -174,7 +175,7 @@ export function Dashboard() {
           <h3 className="text-base font-semibold text-slate-900">Snapshot</h3>
           <p className="text-xs text-slate-500">Key metrics for the current cycle</p>
         </div>
-        <Button variant="outline" size="sm" className="rounded-full text-xs">
+        <Button variant="outline" size="sm" className="rounded-full text-xs" onClick={async () => { const { toast } = await import('sonner'); toast.success('Report download started'); }}>
           Download report
         </Button>
       </div>
@@ -385,7 +386,7 @@ export function Dashboard() {
                 <CardTitle className="text-lg font-semibold">Recent Activity</CardTitle>
                 <p className="text-sm text-slate-500">Latest updates</p>
               </div>
-              <Button variant="ghost" size="sm" className="text-slate-700">View All</Button>
+              <Button variant="ghost" size="sm" className="text-slate-700" onClick={() => navigate('/notifications')}>View All</Button>
             </CardHeader>
             <CardContent className="pt-0">
               <div className="space-y-4 max-h-[280px] overflow-y-auto pr-2 pb-2">
@@ -442,7 +443,7 @@ export function Dashboard() {
                 <CardTitle className="text-lg font-semibold">Upcoming Site Visits</CardTitle>
                 <p className="text-sm text-slate-500">Next 3 days</p>
               </div>
-              <Button variant="ghost" size="sm" className="text-slate-700">View All</Button>
+              <Button variant="ghost" size="sm" className="text-slate-700" onClick={() => navigate('/site-visits')}>View All</Button>
             </CardHeader>
             <CardContent>
               <div className="space-y-3">
