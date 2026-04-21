@@ -274,21 +274,21 @@ export function Dashboard() {
 
         {/* Lead Sources */}
         <motion.div variants={itemVariants}>
-          <Card className="dashboard-card h-[420px] overflow-hidden">
+          <Card className="dashboard-card h-[440px] overflow-hidden">
             <CardHeader className="pb-2">
               <CardTitle className="text-lg font-semibold">Lead Sources</CardTitle>
               <p className="text-sm text-slate-500">Distribution by source</p>
             </CardHeader>
             <CardContent className="pt-0 overflow-hidden">
-              <ResponsiveContainer width="100%" height={300}>
-                <PieChart>
+              <ResponsiveContainer width="100%" height={340}>
+                <PieChart margin={{ bottom: 20 }}>
                   <Pie
                     data={leadSourceChartData.labels.map((label, i) => ({
                       name: label,
                       value: leadSourceChartData.datasets[0].data[i]
                     }))}
                     cx="50%"
-                    cy="50%"
+                    cy="45%"
                     innerRadius={60}
                     outerRadius={100}
                     paddingAngle={2}
@@ -299,7 +299,7 @@ export function Dashboard() {
                     ))}
                   </Pie>
                   <Tooltip contentStyle={{ borderRadius: 12, border: 'none', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }} />
-                  <Legend verticalAlign="bottom" height={40} wrapperStyle={{ fontSize: 12 }} />
+                  <Legend verticalAlign="bottom" height={80} wrapperStyle={{ fontSize: 12, paddingTop: "10px" }} />
                 </PieChart>
               </ResponsiveContainer>
             </CardContent>
@@ -350,7 +350,7 @@ export function Dashboard() {
               <p className="text-sm text-slate-500">Current lead distribution</p>
             </CardHeader>
             <CardContent className="pt-0">
-              <div className="space-y-4 max-h-[280px] overflow-y-auto pr-1">
+              <div className="space-y-4 max-h-[280px] overflow-y-auto pr-2 pb-2">
                 {[
                   { stage: 'New', count: 180, color: 'bg-blue-500', percentage: 14 },
                   { stage: 'Contacted', count: 220, color: 'bg-sky-500', percentage: 18 },
@@ -379,7 +379,7 @@ export function Dashboard() {
 
         {/* Recent Activity */}
         <motion.div variants={itemVariants}>
-          <Card className="dashboard-card h-[350px]">
+          <Card className="dashboard-card h-[380px]">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <div>
                 <CardTitle className="text-lg font-semibold">Recent Activity</CardTitle>
@@ -388,7 +388,7 @@ export function Dashboard() {
               <Button variant="ghost" size="sm" className="text-slate-700">View All</Button>
             </CardHeader>
             <CardContent className="pt-0">
-              <div className="space-y-4 max-h-[260px] overflow-y-auto">
+              <div className="space-y-4 max-h-[280px] overflow-y-auto pr-2 pb-2">
                 {[
                   { type: 'lead', action: 'New lead assigned', detail: 'Rajesh Khanna - Lodha Park', time: '5 min ago', icon: Users, color: 'bg-blue-500' },
                   { type: 'visit', action: 'Site visit completed', detail: 'Suresh Iyer - Site visit done', time: '1 hour ago', icon: MapPin, color: 'bg-green-500' },
